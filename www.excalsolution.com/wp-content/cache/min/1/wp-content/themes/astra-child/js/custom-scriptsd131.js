@@ -1,0 +1,20 @@
+window.onload=function(){var topBannerAlert=document.getElementById("top-banner-alert");if(topBannerAlert!==null){var cookieName='top-banner-alert-displayed';if(getCookie(cookieName)!=='1'){topBannerAlert.classList.remove("hide");setCookie(cookieName,'1',0);var bannerCloseBtn=document.getElementById("banner-close-btn");if(bannerCloseBtn!==null)
+bannerCloseBtn.addEventListener("click",closeTopBannerAlert)}}
+hideFooterColThreeHeadingFromScreenReaders();setLogoCSSClass();var applyBtns=document.getElementsByClassName("apply-btn");for(var i=0;i<applyBtns.length;i++){applyBtns[i].addEventListener("click",closeJobDesc)}};function closeJobDesc(event){var a=jQuery(event.target).closest(".uael-modal-parent-wrapper").attr("id").replace("-overlay","");UAELModalPopup._close(a)}
+function setCookie(cname,cvalue,exdays){var expires="expires=";if(exdays>0){var d=new Date();d.setTime(d.getTime()+(exdays*24*60*60*1000));expires+=d.toUTCString()}
+document.cookie=cname+"="+cvalue+";"+expires+";path=/;secure"}
+function getCookie(cname){var name=cname+"=";var decodedCookie=decodeURIComponent(document.cookie);var ca=decodedCookie.split(';');for(var i=0;i<ca.length;i++){var c=ca[i];while(c.charAt(0)==' '){c=c.substring(1)}
+if(c.indexOf(name)===0){return c.substring(name.length,c.length)}}
+return""}
+function closeTopBannerAlert(){document.getElementById("banner-close-btn").parentElement.className+=' closed'}
+function hideFooterColThreeHeadingFromScreenReaders(){var footerThirdColDiv=document.getElementsByClassName("footer-adv-widget-3")[0];if(footerThirdColDiv!=null){var colTitle=footerThirdColDiv.getElementsByClassName("widget-title")[0];if(colTitle!==null)
+colTitle.setAttribute("aria-hidden","true")}}
+function setLogoCSSClass(){var logoWrapper=document.getElementById("excal-logo");if(logoWrapper!=null){var logoImg=logoWrapper.getElementsByTagName("img")[0];if(logoImg!=null)
+logoImg.className="excaltech-logo"}}
+function submit_access_key(){var sk=document.getElementById('access_key_pretty').value;if(sk==='')return;var url='https://support.excaltech.com/api/start_session.ns?short_key='+sk+'&download=1';var popW=400;var popH=160;var wdwpos=',width='+popW+',height='+popH;if(document.all||document.layers)
+wdwpos=wdwpos+',top='+(screen.availHeight-popH)/2+',left='+(screen.availWidth-popW)/2;var nw=window.open(url,'','toolbar=no,directories=no,status=no,menubar=no,resizable=yes,location=no,scrollbars=no'+wdwpos);nw.opener=self;document.getElementById('access_key_pretty').value='';return!1}
+jQuery(document).ready(function($){$(window).scroll(function(){var topOffset=$(window).scrollTop();var fixedSection=$('.main-header-bar');if(topOffset>0){fixedSection.addClass('ast-sticky-active ast-sticky-shrunk ast-header-sticked')}else{fixedSection.removeClass('ast-sticky-active ast-sticky-shrunk ast-header-sticked')}})})
+jQuery(document).ready(function($){$(window).scroll(function(){var topOffset=$(window).scrollTop();var fixedSection=$('.ast-above-header-wrap');if(topOffset>0){fixedSection.addClass('ast-above-sticky-active')}else{fixedSection.removeClass('ast-above-sticky-active')}})})
+jQuery(document).ready(function($){const title=$('.home h1.entry-title').first();$(title).before(()=>'<h2 style="display: none;">'+$(title).text()+'</h2>');$(title).remove()})
+jQuery(document).ready(function($){let faqWrap=$('.page-id-83674 #rank-math-faq .rank-math-list');if(faqWrap.length>0){faqWrap.find('.rank-math-list-item').each(function(i,el){let faq=$(this);let faqTitle=faq.find('.rank-math-question');let faqContent=faq.find('.rank-math-answer');if(i===0){faqContent.slideDown();faqTitle.addClass('active')}else{faqContent.slideUp()}
+faq.click(function(){faqContent.slideDown(200);faqTitle.addClass('active');$(this).siblings('.rank-math-list-item').find('.rank-math-answer').slideUp(200);$(this).siblings('.rank-math-list-item').find('.rank-math-question').removeClass('active')})})}})
